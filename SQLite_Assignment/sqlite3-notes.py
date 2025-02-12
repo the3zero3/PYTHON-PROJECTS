@@ -21,7 +21,7 @@ connection.close()
 
 
 
-
+# In practice, you’ll use the with statement to automatically close the connection
 with sqlite3.connect("test_database.db") as connection:
     c = connection.cursor()
     c.executescript("""DROP TABLE IF EXISTS People;
@@ -31,5 +31,5 @@ with sqlite3.connect("test_database.db") as connection:
 
 
 
-peopleValues = (('Luigi', 'Vercotti', 43), ('Arthur', 'Belling', 28))
-c.executemany("INSERT INTO People VALUES(?, ?, ?)", peopleValues)
+    peopleValues = (('Luigi', 'Vercotti', 43), ('Arthur', 'Belling', 28))
+    c.executemany("INSERT INTO People VALUES(?, ?, ?)", peopleValues)
